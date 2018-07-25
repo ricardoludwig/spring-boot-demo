@@ -1,15 +1,9 @@
 eureka:
   instance:
-    hostname: ${EUREKA_HOSTNAME:localhost}
-    #port: ${PORT:7002}
-    nonSecurePort: 80
+    hostname: ${EUREKA_HOSTNAME:localhost:7002}
   client:
     registerWithEureka: true
-    fetchRegistry: false
     serviceUrl:
-      #defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
       defaultZone: http://${eureka.instance.hostname}/eureka/
-  server:
-    wait-time-in-ms-when-sync-empty: 3000
     
 
