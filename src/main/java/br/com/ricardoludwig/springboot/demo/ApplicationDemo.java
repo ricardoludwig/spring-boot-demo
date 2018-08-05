@@ -25,6 +25,7 @@ public class ApplicationDemo {
 }
 
 @RestController
+@RequestMapping("/demo")
 class ServiceInstanceRestController {
 
 	@Autowired
@@ -35,17 +36,17 @@ class ServiceInstanceRestController {
 	 * @param applicationName
 	 * @return
 	 */
-	@RequestMapping("/show-instances/{applicationName}")
+	@RequestMapping("/instances/{applicationName}")
 	public List<ServiceInstance> serviceInstancesByApplicationName(@PathVariable String applicationName) {
 		return this.discoveryClient.getInstances(applicationName);
 	}
 
-	@RequestMapping(value = "/show/{name}")
+	@RequestMapping(value = "/{name}")
 	public String echoStudentName(@PathVariable(name = "name") String name) {
 		return "Hello  " + name + " Responsed on : " + new Date();
 	}
 
-	@RequestMapping(value = "/showAge/{name}")
+	@RequestMapping(value = "/age/{name}")
 	public Person getStudentDetails(@PathVariable(name = "name") String name) {
 		return new Person(name, 40);
 	}
